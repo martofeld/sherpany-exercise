@@ -1,3 +1,3 @@
 package com.mfeldsztejn.sherpanytest.dtos
 
-data class LatLng(val lat: Long, val lng: Long)
+data class LatLng(val lat: String, val lng: String)
