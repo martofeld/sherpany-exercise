@@ -1,5 +1,6 @@
 package com.mfeldsztejn.sherpanytest.ui.list
 
+import android.os.AsyncTask
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mfeldsztejn.sherpanytest.R
 import com.mfeldsztejn.sherpanytest.models.PostUserModel
+import com.mfeldsztejn.sherpanytest.persitence.Database
 import kotlinx.android.synthetic.main.post_view_holder.view.*
 
 class PostsAdapter : PagedListAdapter<PostUserModel, PostViewHolder>(PostDiffUtil()) {
@@ -32,6 +34,14 @@ class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: PostUserModel) {
         itemView.postTitle.text = item.post.title
         itemView.postAuthor.text = item.user.email
+        itemView.deletePost.setOnClickListener {
+            AsyncTask.execute {
+                Database
+                        .getInstance()
+                        .postsDao()
+                        .delete(item.post)
+            }
+        }
     }
 
 }

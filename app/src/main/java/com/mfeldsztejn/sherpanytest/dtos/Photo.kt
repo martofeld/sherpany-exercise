@@ -19,4 +19,6 @@ import androidx.room.PrimaryKey
             Index(value = ["albumId"], name = "albumId", unique = false)
         ])
 data class Photo(@PrimaryKey val id: Int, val title: String,
-                 val url: String, val thumbnailUrl: String, val albumId: Int)
+                 val url: String, val thumbnailUrl: String, val albumId: Int) : Persistable {
+    override fun obtainId() = id
+}

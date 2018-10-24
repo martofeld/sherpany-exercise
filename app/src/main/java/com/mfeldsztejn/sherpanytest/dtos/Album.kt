@@ -18,4 +18,6 @@ import androidx.room.PrimaryKey
         indices = [
             Index(value = ["userId"], name = "albumUserId", unique = false)
         ])
-data class Album(@PrimaryKey val id: Int, val title: String, val userId: Int)
+data class Album(@PrimaryKey val id: Int, val title: String, val userId: Int) : Persistable {
+    override fun obtainId() = id
+}

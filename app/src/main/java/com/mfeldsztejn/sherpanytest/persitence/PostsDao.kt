@@ -8,11 +8,14 @@ import com.mfeldsztejn.sherpanytest.dtos.Post
 import com.mfeldsztejn.sherpanytest.models.PostUserModel
 
 @Dao
-interface PostsDao : BaseDao<Post> {
+abstract class PostsDao : BaseDao<Post>() {
 
     @Query("SELECT * FROM posts")
-    fun get(): LiveData<List<Post>>
+    abstract fun get(): LiveData<List<Post>>
 
     @Query("SELECT posts.*, users.* FROM posts INNER JOIN users ON posts.userId == users.user_id")
-    fun getPostsWithUser(): DataSource.Factory<Int, PostUserModel>
+    abstract fun getPostsWithUser(): DataSource.Factory<Int, PostUserModel>
+
+    @Query("SELECT * FROM posts where id=:id")
+    abstract override fun find(id: Int): Post?
 }

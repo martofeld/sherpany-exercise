@@ -16,4 +16,6 @@ import androidx.room.PrimaryKey
         indices = [
             Index(value = ["userId"], name = "postUserId", unique = false)
         ])
-data class Post(@PrimaryKey val id: Int, val title: String, val body: String, val userId: Int)
+data class Post(@PrimaryKey val id: Int, val title: String, val body: String, val userId: Int) : Persistable {
+    override fun obtainId() = id
+}
