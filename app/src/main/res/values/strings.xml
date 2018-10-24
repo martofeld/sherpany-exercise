@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SherpanyTest</string>
+    <string name="empty_fragment_text">You haven\'t selected any posts yet</string>
 </resources>
