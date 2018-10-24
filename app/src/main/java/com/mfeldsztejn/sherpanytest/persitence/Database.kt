@@ -9,7 +9,7 @@ import com.mfeldsztejn.sherpanytest.dtos.Photo
 import com.mfeldsztejn.sherpanytest.dtos.Post
 import com.mfeldsztejn.sherpanytest.dtos.User
 
-@androidx.room.Database(entities = [User::class, Post::class, Album::class, Photo::class], version = 2, exportSchema = false)
+@androidx.room.Database(entities = [User::class, Post::class, Album::class, Photo::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class Database : RoomDatabase() {
 

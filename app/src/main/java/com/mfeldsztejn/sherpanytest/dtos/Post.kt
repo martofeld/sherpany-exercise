@@ -14,6 +14,6 @@ import androidx.room.PrimaryKey
                 onUpdate = ForeignKey.CASCADE)
         ],
         indices = [
-            Index(value = ["userId"], name = "userId", unique = false)
+            Index(value = ["userId"], name = "postUserId", unique = false)
         ])
 data class Post(@PrimaryKey val id: Int, val title: String, val body: String, val userId: Int)
