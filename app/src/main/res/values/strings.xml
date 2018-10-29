@@ -4,4 +4,5 @@
     <string name="action_search">Search</string>
     <string name="empty_results">No posts found</string>
     <string name="retry">Retry</string>
+    <string name="challenge_accepted">Challege accepted!</string>
 </resources>

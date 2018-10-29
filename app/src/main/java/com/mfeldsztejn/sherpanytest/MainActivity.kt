@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity(), OnPostSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        setTitle(R.string.challenge_accepted)
 
         isTwoPane = findViewById<View>(R.id.detail_fragment) != null
         if (savedInstanceState != null && savedInstanceState.containsKey(LAST_POST_KEY)) {
