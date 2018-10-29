@@ -16,6 +16,9 @@ abstract class PostsDao : BaseDao<Post>() {
     @Query("SELECT posts.*, users.* FROM posts INNER JOIN users ON posts.userId == users.user_id")
     abstract fun getPostsWithUser(): DataSource.Factory<Int, PostUserModel>
 
+    @Query("SELECT posts.*, users.* FROM posts INNER JOIN users ON posts.userId == users.user_id WHERE posts.title LIKE :title")
+    abstract fun getPostsWithUserWithTitleLike(title: String): DataSource.Factory<Int, PostUserModel>
+
     @Query("SELECT * FROM posts where id=:id")
     abstract override fun find(id: Int): Post?
 }

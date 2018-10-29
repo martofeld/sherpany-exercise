@@ -26,6 +26,8 @@ class DetailFragment : Fragment() {
                 }
             }
         }
+
+        fun createTag(post: Post) = "DETAIL_FRAGMENT_${post.id}"
     }
 
     private lateinit var viewModel: DetailViewModel
